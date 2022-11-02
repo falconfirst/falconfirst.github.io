@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Change Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-light-green.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  <script src="script.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="w3-container w3-theme w3-padding" id="header">
+    <div class="w3-center">
+      <h1 class="w3-xxlarge w3-animate-bottom">Change Calculator</h1>
+
+    </div>
+  </header>
+
+  <div class="w3-padding">
+  </div>
+
+  <div class="w3-center w3-padding w3-margin-top">
+    <div class="w3-card w3-center">
+      <div id="alert_container" class="alert" hidden>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Please enter change in the format "0.00".
+      </div>
+      <input id="change_enter" style="font-size:100%" placeholder="Enter change..." class="w3-input w3-center"
+        type="number">
+      <button id="enter">Calculate</button> <button id="show_all">Show All</button>
+
+    </div>
+  </div>
+
+  <div class="w3-padding">
+  </div>
+
+  <div class="w3-row-padding w3-center w3-margin-top" id="containerTwenty">
+    <div class="w3-card w3-padding center">
+      <table align="center" class="w3-center" style="width:100%;table-layout:fixed;" border="0px">
+        <tr>
+          <td style="width:25%">
+            <h4>Available?</h4>
+            <label class="switch">
+              <input type="checkbox" id="hasTwenty" checked>
+              <span class="slider"></span>
+            </label>
+
+          </td>
+          <td style="width:50%">
+            <img src="images/20dollar.svg" width="70%">
+          </td>
+          <td style="width:25%">
+            <h1 style="font-size:500%" id="Twenty">0</h1>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-margin-top" id="containerTen">
+    <div class="w3-card w3-padding center">
+      <table align="center" class="w3-center" style="width:100%;table-layout:fixed;" border="0px">
+        <tr>
+          <td style="width:25%">
+            <h4>Available?</h4>
+            <label class="switch">
+              <input type="checkbox" id="hasTen" checked>
+              <span class="slider"></span>
+            </label>
+
+          </td>
+          <td style="width:50%">
+            <img src="images/10dollar.svg" width="70%">
+          </td>
+          <td style="width:25%">
+            <h1 style="font-size:500%" id="Ten">0</h1>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-margin-top" id="containerFive">
+    <div class="w3-card w3-padding center">
+      <table align="center" class="w3-center" style="width:100%;table-layout:fixed;" border="0px">
+        <tr>
+          <td style="width:25%">
+            <h4>Available?</h4>
+            <label class="switch">
+              <input type="checkbox" id="hasFive" checked>
+              <span class="slider"></span>
+            </label>
+
+          </td>
+          <td style="width:50%">
+            <img src="images/5dollar.svg" width="70%">
+          </td>
+          <td style="width:25%">
+            <h1 style="font-size:500%" id="Five">0</h1>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-margin-top" id="containerOne">
+    <div class="w3-card w3-padding center">
+      <table align="center" class="w3-center" style="width:100%;table-layout:fixed;" border="0px">
+        <tr>
+          <td style="width:25%">
+            <h4>Available?</h4>
+            <label class="switch">
+              <input type="checkbox" id="hasOne" checked>
+              <span class="slider"></span>
+            </label>
+
+          </td>
+          <td style="width:50%">
+            <img src="images/1dollar.svg" width="70%">
+          </td>
+          <td style="width:25%">
+            <h1 style="font-size:500%" id="One">0</h1>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-margin-top" id="containerQuarter">
+    <div class="w3-card w3-padding center">
+      <table align="center" class="w3-center" style="width:100%;table-layout:fixed;" border="0px">
+        <tr>
+          <td style="width:25%">
+            <h4>Available?</h4>
+            <label class="switch">
+              <input type="checkbox" id="hasQuarter" checked>
+              <span class="slider"></span>
+            </label>
+
+          </td>
+          <td style="width:50%">
+            <img src="images/25cents.svg" width="35%">
+          </td>
+          <td style="width:25%">
+            <h1 style="font-size:500%" id="Quarter">0</h1>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-margin-top" id="containerDime">
+    <div class="w3-card w3-padding center">
+      <table align="center" class="w3-center" style="width:100%;table-layout:fixed;" border="0px">
+        <tr>
+          <td style="width:25%">
+            <h4>Available?</h4>
+            <label class="switch">
+              <input type="checkbox" id="hasDime" checked>
+              <span class="slider"></span>
+            </label>
+
+          </td>
+          <td style="width:50%">
+            <img src="images/10cents.svg" width="35%">
+          </td>
+          <td style="width:25%">
+            <h1 style="font-size:500%" id="Dime">0</h1>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-margin-top" id="containerNickel">
+    <div class="w3-card w3-padding center">
+      <table align="center" class="w3-center" style="width:100%;table-layout:fixed;" border="0px">
+        <tr>
+          <td style="width:25%">
+            <h4>Available?</h4>
+            <label class="switch">
+              <input type="checkbox" id="hasNickel" checked>
+              <span class="slider"></span>
+            </label>
+
+          </td>
+          <td style="width:50%">
+            <img src="images/5cents.svg" width="35%">
+          </td>
+          <td style="width:25%">
+            <h1 style="font-size:500%" id="Nickel">0</h1>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-margin-top" id="containerPenny">
+    <div class="w3-card w3-padding center">
+      <table align="center" class="w3-center" style="width:100%;table-layout:fixed;" border="0px">
+        <tr>
+          <td style="width:25%">
+            <h4>Available?</h4>
+            <label class="switch">
+              <input type="checkbox" id="hasPenny" checked>
+              <span class="slider"></span>
+            </label>
+
+          </td>
+          <td style="width:50%">
+            <img src="images/1cent.svg" width="35%">
+          </td>
+          <td style="width:25%">
+            <h1 style="font-size:500%" id="Penny">0</h1>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-margin-top" id="containerLeftover">
+    <div class="w3-card w3-padding center">
+      <h1 style="font-size:200%">Leftover Change:</h1>
+      <h1 style="font-size:250%" id="Leftover">$0</h1>
+    </div>
+  </div>
+
+
+
+  <div class="w3-padding w3-center">
+    <a href="#help_modal" rel="modal:open"><button class="w3-xxlarge">Help</button></a>
+  </div>
+  <div id="help_modal" class="modal">
+    <h1 class="w3-xxlarge w3-center">Help</h1>
+    <ol>
+      <li>Click the slider if the bill/coin is available to give.
+        Red means you don't have the bill/coin, and green means you do have it.<br>
+        <img src="images/slider-options.png" width=90% /></li>
+      <li>Enter the change due in the “Enter change…” box. <img src="images/change-enter.png" width=90% />
+        <ol type="a">
+          <li>The middle of the box shows the type of bill/coin to give change.</li>
+          <li>On the right hand side of each box, the number of bills/coins needed to give to the customer will be
+            displayed.</li>
+          <ol type="i">
+            <li>In order to show everything, click the “Show All” button</li>
+            <li>The leftover change will be displayed at the bottom.</li>
+          </ol>
+        </ol>
+        <br><img src="images/change-dollar-diagram.png" width=90% />
+      </li>
+      <li>In order to reuse the calculator, re-enter a new number and click “Calculate” again.</li>
+    </ol>
+  </div>
+</body>
+
+</html>
