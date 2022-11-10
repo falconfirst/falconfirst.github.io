@@ -18,6 +18,32 @@ $(document).ready(function() {
     display_change();
   });
 
+  $("#change_enter").bind("change paste keyup", function(){
+    var start = this.selectionStart, end = this.selectionEnd;
+    var input = $(this).val();
+    var index_of_period = input.indexOf(".");
+    var set_value;
+
+    
+    var tmp = input.indexOf("..");
+    if (tmp != -1){
+      input = input.slice(0,tmp)+input.slice(tmp+1);
+    }
+    input = input.replaceAll("?","");
+    if (input == "." || input == ""){
+      this.value = "";
+      return;
+    }
+    if (index_of_period != -1){
+      set_value = input+"?".repeat(2-input.slice(index_of_period+1).length);
+    }
+    else{
+      set_value = input+".??";
+    }
+    this.value = set_value;
+    this.setSelectionRange(start,end);
+  });
+  
   $("#show_all").click(function() {
     show_all();
   });
@@ -41,11 +67,12 @@ function reset() {
 }
 
 function get_change() {
-  if(!/^(0|[1-9]\d*)(\.\d+)?$/.test($("#change_enter").val())){
+  var value = $("#change_enter").val().replaceAll("?","0");
+  if(!/^(0|[1-9]\d*)(\.\d+)?$/.test(value)){
     $("#alert_container").fadeIn(100);
     return;
   }
-  change = Math.floor(($("#change_enter").val() * 100) + 0.0005);
+  change = Math.floor((value * 100) + 0.0005);
 }
 
 function get_none() {
